@@ -23,6 +23,13 @@ jobs:
         python -m pip install --upgrade pip
         pip install -r requirement.txt
     - name: run
+      env:
+        AGENTID: ${{ secrets.AGENTID }}
+        COOLPUSHURL: ${{ secrets.COOLPUSHURL }}
+        CORPID: ${{ secrets.CORPID }}
+        CORPSECRET: ${{ secrets.CORPSECRET }}
+        IMG_URL: ${{ secrets.IMG_URL }}
+        PUSHUSR: ${{ secrets.PUSHUSR }}
       run: |
         pip install -r requirement.txt
         python mrds.py
