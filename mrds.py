@@ -6,7 +6,7 @@ import json
 from lxml import etree
 import time
 
-# 推送配置
+# 推送配置1
 corpid = 'wwa5abd7a98d70b22a'
 agentid = '1000002'
 corpsecret = 'J9FiDx75lHpixlTN_nmNkT_TV60jX17awrtYfW_9YbE'
