@@ -1,25 +1,21 @@
-
 # 爬一哈每日大使任务
 import requests
 import re
 import json
 from lxml import etree
 import time
+import os
 
 # 推送配置1
-corpid = 'wwa5abd7a98d70b22a'
-agentid = '1000002'
-corpsecret = 'J9FiDx75lHpixlTN_nmNkT_TV60jX17awrtYfW_9YbE'
-pushusr = 'LianHeXiang' #企业微信推送用户,默认'@all'为应用全体用户
-img_url = 'https://www.hualigs.cn/image/60a80a1e785bb.jpg'
-coolpushurl = 'https://push.xuthus.cc/send/f3447877dcd1f54116ccf787b3dc535b?groupId=809407633'
+corpid = os.environ["CORPID"]
+agentid = os.environ["AGENTID"]
+corpsecret = os.environ["CORPSECRET"]
+pushusr = os.environ["PUSHUSR"]
+img_url = os.environ["IMG_URL"]
+coolpushurl = os.environ["COOLPUSHURL"]
 
 # 源URL配置
 url = 'https://cn.wowhead.com/'
-#url = 'https://www.baidu.com'
-#url = 'https://cdn.fobzs.com'
-#response = requests.get(url)
-#html = str(response.content,'utf-8')
 
 # 名称字典
 d = {'Rare Resources': "稀有资源：从暗影界的稀有怪物和宝箱中收集3枚掮客硬币"}
