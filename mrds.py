@@ -6,7 +6,7 @@ from lxml import etree
 import time
 import os
 
-# 推送配置1
+# 推送配置1 
 corpid = os.environ["CORPID"]
 agentid = os.environ["AGENTID"]
 corpsecret = os.environ["CORPSECRET"]
