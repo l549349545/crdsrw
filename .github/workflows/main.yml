@@ -1,10 +1,10 @@
-#每天 15:30 开始排队，延时未知
+#每天 15:20 开始排队，延时未知
 name: crds
 
 on:
   push:
   schedule:
-    - cron: '30 7 * * *'
+    - cron: '20 7 * * *'
     
 jobs:
   start:
