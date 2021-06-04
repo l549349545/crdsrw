@@ -3,6 +3,7 @@ name: crds
 
 on:
   push:
+  workflow_dispatch:
   schedule:
     - cron: '10 7 * * *'
     
