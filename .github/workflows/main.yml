@@ -1,11 +1,8 @@
-#每天 15:20 开始排队，延时未知
+#通过 workflow_dispatch 触发，cron任务部署在云函数
 name: crds
 
 on:
-  push:
   workflow_dispatch:
-  schedule:
-    - cron: '10 7 * * *'
     
 jobs:
   start:
