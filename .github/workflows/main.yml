@@ -30,3 +30,12 @@ jobs:
       run: |
         pip install -r requirement.txt
         python mrds.py
+        
+    - name: Commit and push if changed   # hmm.json更新到仓库
+      run: |
+            git diff
+            git config --global user.email "306941068@qq.com"
+            git config --global user.name "l549349545"
+            git add -A
+            git commit -m "Updated hmm" || exit 
+            git push
