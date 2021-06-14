@@ -106,7 +106,7 @@ def run():
     #酷推推送
     #requests.get(coolpushurl, params={"c": "不愿意透露姓名的好心人王富贵提供\n"+data})
 
-    retmsg="不愿意透露姓名的好心人王富贵提供\n"+data+ "\n更新时间(UTC):"+datetime.datetime.strftime(datetime.datetime.now() ,'%Y-%m-%d %H:%M:%S')
+    retmsg="不愿意透露姓名的好心人王富贵提供\n"+data+ "更新时间(UTC):"+datetime.datetime.strftime(datetime.datetime.now() ,'%Y-%m-%d %H:%M:%S')
     model={"data",retmsg} #数据
     with open("./hmm.json",'w',encoding='utf-8') as json_file:
        json.dump(model,json_file,ensure_ascii=False, default=set_default)
