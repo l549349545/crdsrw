@@ -67,6 +67,12 @@ def run():
        for i in con:
         strBoss += i
         
+       #获取本周爬塔
+       con=sel.xpath('normalize-space(//div[@id="EU-group-torghast-wings"])')
+       strPt = ''
+       for i in con:
+        strPt += i
+        
        #获取剧场
        con=sel.xpath('normalize-space(//div[@id="EU-group-star-lake-amphitheater"])')
        strJc = ''
@@ -120,18 +126,19 @@ def run():
 
     #企业微信推送
     msg = msg.replace('\n\n', '\n')
-    push = WXPusher(pushusr,msg)
-    push.send_message()
+    #push = WXPusher(pushusr,msg)
+    #push.send_message()
 
     #酷推推送
-    requests.get(coolpushurl, params={"c": "不愿意透露姓名的好心人王富贵提供\n"+data})
+    #requests.get(coolpushurl, params={"c": "不愿意透露姓名的好心人王富贵提供\n"+data})
     
     strBoss=strBoss + "\n更新时间(UTC):"+datetime.datetime.strftime(datetime.datetime.now() ,'%Y-%m-%d %H:%M:%S')
     strJc=strJc + "\n更新时间(UTC):"+datetime.datetime.strftime(datetime.datetime.now() ,'%Y-%m-%d %H:%M:%S')
     strZc=strZc + "\n更新时间(UTC):"+datetime.datetime.strftime(datetime.datetime.now() ,'%Y-%m-%d %H:%M:%S')    
     retmsg=data+ "更新时间(UTC):"+datetime.datetime.strftime(datetime.datetime.now() ,'%Y-%m-%d %H:%M:%S')
+    strPt=strPt+ "\n更新时间(UTC):"+datetime.datetime.strftime(datetime.datetime.now() ,'%Y-%m-%d %H:%M:%S')
     
-    model={"大使任务：\n"+retmsg,"世界BOSS：\n"+strBoss,"泊星剧场：\n"+strJc,"周常任务：\n"+strZc} #数据
+    model={"大使任务：\n"+retmsg,"世界BOSS：\n"+strBoss,"泊星剧场：\n"+strJc,"周常任务：\n"+strZc,"噬渊爬塔：\n"+strPt} #数据
     with open("./hmm.json",'w',encoding='utf-8') as json_file:
        json.dump(model,json_file,ensure_ascii=False, default=set_default)
     
