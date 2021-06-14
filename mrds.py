@@ -5,6 +5,8 @@ import json
 from lxml import etree
 import time
 import os
+import datetime
+import timedelta
 
 # 推送配置1 
 corpid = os.environ["CORPID"]
@@ -44,6 +46,11 @@ d.update({'Gildenite Grab': '钽金抢夺：从晋升堡垒的稀有怪物和宝
 d.update({'A Source of Sorrowvine': '哀藤之源：从雷文德斯的稀有怪物和宝箱中收集3根哀藤'})
 d.update({'A Wealth of Wealdwood': '仙枝的财富：从炽蓝仙野的稀有怪物和宝箱中收集3根仙枝'})
 d.update({'Bonemetal Bonanza': '富产髓钢：从玛卓克萨斯的稀有怪物和宝箱中收集3份髓钢'})
+
+def set_default(obj):
+    if isinstance(obj, set):
+         return list(obj)
+    raise TypeError
 
 def run():
     try:
@@ -94,12 +101,16 @@ def run():
 
     #企业微信推送
     msg = msg.replace('\n\n', '\n')
-    push = WXPusher(pushusr,msg)
-    push.send_message()
+    #push = WXPusher(pushusr,msg)
+    #push.send_message()
 
     #酷推推送
-    requests.get(coolpushurl, params={"c": "不愿意透露姓名的好心人王富贵提供\n"+data})
+    #requests.get(coolpushurl, params={"c": "不愿意透露姓名的好心人王富贵提供\n"+data})
 
+    model={"data","不愿意透露姓名的好心人王富贵提供\n"+data+ datetime.datetime.strftime(datetime.datetime.now()+datetime.timedelta(hours=8) ,'%Y-%m-%d %H:%M:%S')} #数据
+    with open("./hmm.json",'w',encoding='utf-8') as json_file:
+       json.dump(model,json_file,ensure_ascii=False, default=set_default)
+    
     print(msg)
     return msg
  
