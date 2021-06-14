@@ -3,11 +3,6 @@ name: crds
 
 on:
   workflow_dispatch:
-    inputs:
-        CoolPush:
-          description: '酷推地址'
-          required: true
-          default: ${{ secrets.COOLPUSHURL }}
     
 jobs:
   start:
@@ -27,7 +22,7 @@ jobs:
     - name: run
       env:
         AGENTID: ${{ secrets.AGENTID }}
-        COOLPUSHURL: ${{ github.event.inputs.CoolPush }}
+        COOLPUSHURL: ${{ secrets.COOLPUSHURL }}
         CORPID: ${{ secrets.CORPID }}
         CORPSECRET: ${{ secrets.CORPSECRET }}
         IMG_URL: ${{ secrets.IMG_URL }}
