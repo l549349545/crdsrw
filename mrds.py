@@ -100,11 +100,11 @@ def run():
 
     #企业微信推送
     msg = msg.replace('\n\n', '\n')
-    #push = WXPusher(pushusr,msg)
-    #push.send_message()
+    push = WXPusher(pushusr,msg)
+    push.send_message()
 
     #酷推推送
-    #requests.get(coolpushurl, params={"c": "不愿意透露姓名的好心人王富贵提供\n"+data})
+    requests.get(coolpushurl, params={"c": "不愿意透露姓名的好心人王富贵提供\n"+data})
 
     retmsg="不愿意透露姓名的好心人王富贵提供\n"+data+ "更新时间(UTC):"+datetime.datetime.strftime(datetime.datetime.now() ,'%Y-%m-%d %H:%M:%S')
     model={"data",retmsg} #数据
