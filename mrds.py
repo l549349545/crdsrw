@@ -59,7 +59,27 @@ def run():
        r.encoding = r.apparent_encoding
        #data = compile.findall(r.text)
        #data = r.text
-       sel=etree.HTML(r.text)
+       sel=etree.HTML(r.text)    
+       
+       #获取世界BOSS
+       con=sel.xpath('normalize-space(//div[@id="EU-group-epiceliteworldsl"])')
+       strBoss = ''
+       for i in con:
+        strBoss += i
+        
+       #获取剧场
+       con=sel.xpath('normalize-space(//div[@id="EU-group-star-lake-amphitheater"])')
+       strJc = ''
+       for i in con:
+        strJc += i
+        
+       #获取周长
+       con=sel.xpath('normalize-space(//div[@id="EU-group-weekly-quest-sl"])')
+       strZc = ''
+       for i in con:
+        strZc += i
+
+       #获取大使任务
        con=sel.xpath('normalize-space(//div[@id="EU-group-calling-quests"])')
        string = ''
        for i in con:
@@ -100,14 +120,18 @@ def run():
 
     #企业微信推送
     msg = msg.replace('\n\n', '\n')
-    push = WXPusher(pushusr,msg)
-    push.send_message()
+    #push = WXPusher(pushusr,msg)
+    #push.send_message()
 
     #酷推推送
-    requests.get(coolpushurl, params={"c": "不愿意透露姓名的好心人王富贵提供\n"+data})
-
-    retmsg="不愿意透露姓名的好心人王富贵提供\n"+data+ "更新时间(UTC):"+datetime.datetime.strftime(datetime.datetime.now() ,'%Y-%m-%d %H:%M:%S')
-    model={"data",retmsg} #数据
+    #requests.get(coolpushurl, params={"c": "不愿意透露姓名的好心人王富贵提供\n"+data})
+    
+    strBoss=strBoss + "\n更新时间(UTC):"+datetime.datetime.strftime(datetime.datetime.now() ,'%Y-%m-%d %H:%M:%S')
+    strJc=strJc + "\n更新时间(UTC):"+datetime.datetime.strftime(datetime.datetime.now() ,'%Y-%m-%d %H:%M:%S')
+    strZc=strZc + "\n更新时间(UTC):"+datetime.datetime.strftime(datetime.datetime.now() ,'%Y-%m-%d %H:%M:%S')    
+    retmsg=data+ "更新时间(UTC):"+datetime.datetime.strftime(datetime.datetime.now() ,'%Y-%m-%d %H:%M:%S')
+    
+    model={"大使任务：\n"+retmsg,"世界BOSS：\n"+strBoss,"泊星剧场：\n"+strJc,"周常任务：\n"+strZc} #数据
     with open("./hmm.json",'w',encoding='utf-8') as json_file:
        json.dump(model,json_file,ensure_ascii=False, default=set_default)
     
