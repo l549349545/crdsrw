@@ -45,6 +45,8 @@ d.update({'Gildenite Grab': '钽金抢夺：从晋升堡垒的稀有怪物和宝
 d.update({'A Source of Sorrowvine': '哀藤之源：从雷文德斯的稀有怪物和宝箱中收集3根哀藤'})
 d.update({'A Wealth of Wealdwood': '仙枝的财富：从炽蓝仙野的稀有怪物和宝箱中收集3根仙枝'})
 d.update({'Bonemetal Bonanza': '富产髓钢：从玛卓克萨斯的稀有怪物和宝箱中收集3份髓钢'})
+d.update({'Training in Bastion': '晋升堡垒训练：在晋升堡垒完成3个世界任务'})
+d.update({'A Calling in Ardenweald': '使命：炽蓝仙野：在炽蓝仙野完成3个世界任务'})
 
 def set_default(obj):
     if isinstance(obj, set):
