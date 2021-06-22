@@ -47,6 +47,8 @@ d.update({'A Wealth of Wealdwood': '仙枝的财富：从炽蓝仙野的稀有�
 d.update({'Bonemetal Bonanza': '富产髓钢：从玛卓克萨斯的稀有怪物和宝箱中收集3份髓钢'})
 d.update({'Training in Bastion': '晋升堡垒训练：在晋升堡垒完成3个世界任务'})
 d.update({'A Calling in Ardenweald': '使命：炽蓝仙野：在炽蓝仙野完成3个世界任务'})
+d.update({'A Calling in Maldraxxus': '使命：玛卓克萨斯：在玛卓克萨斯完成3个世界任务'})
+d.update({'A Calling in Revendreth': '使命：雷文德斯：在雷文德斯完成3个世界任务'})
 
 def set_default(obj):
     if isinstance(obj, set):
