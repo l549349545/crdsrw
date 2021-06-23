@@ -137,6 +137,12 @@ def run():
     #酷推推送
     requests.get(coolpushurl, params={"c": "机器人查询指令：大使、世界BOSS、剧场、周常、爬塔\n"+data+"\n网站查看：http://baimiao.work"})
 
+    #POST发布文章
+    conurl = "http://baimiao.work/action/import"
+    conttext="大使任务：\n"+data+"\n\n\n\n世界BOSS(明日)：\n"+strBoss+"\n\n\n\n泊星剧场(明日)：\n"+strJc+"\n\n\n\n周常任务(明日)：\n"+strZc+"\n\n\n\n噬渊爬塔(明日)：\n"+strPt;
+    contdata = {"title":"大使任务 更新时间(UTC):"+datetime.datetime.strftime(datetime.datetime.now() ,'%Y-%m-%d %H:%M:%S'),"text":conttext,"key":"ob7hww6fs2e4xo9lltzewcpok5","mid":array([6])}
+    requests.post(url=conurl,data=contdata)
+    
     #保存本地json
     strBoss=strBoss + "\n更新时间(UTC):"+datetime.datetime.strftime(datetime.datetime.now() ,'%Y-%m-%d %H:%M:%S')
     strJc=strJc + "\n更新时间(UTC):"+datetime.datetime.strftime(datetime.datetime.now() ,'%Y-%m-%d %H:%M:%S')
@@ -148,12 +154,6 @@ def run():
     with open("./hmm.json",'w',encoding='utf-8') as json_file:
        json.dump(model,json_file,ensure_ascii=False, default=set_default)
     
-    #POST发布文章
-    conurl = "http://baimiao.work/action/import"
-    conttext="大使任务：\n"+retmsg+"\n\n\n\n世界BOSS(明日)：\n"+strBoss+"\n\n\n\n泊星剧场(明日)：\n"+strJc+"\n\n\n\n周常任务(明日)：\n"+strZc+"\n\n\n\n噬渊爬塔(明日)：\n"+strPt;
-    contdata = {"title":"大使任务 更新时间(UTC):"+datetime.datetime.strftime(datetime.datetime.now() ,'%Y-%m-%d %H:%M:%S'),"text":conttext,"key":"ob7hww6fs2e4xo9lltzewcpok5","mid":array([6])}
-    requests.post(url=conurl,data=contdata)
-
     print(msg)
     return retmsg
  
