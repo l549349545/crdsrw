@@ -9,12 +9,12 @@ import datetime
 from numpy import array
 
 # 推送配置1 
-corpid = os.environ["CORPID"]
-agentid = os.environ["AGENTID"]
-corpsecret = os.environ["CORPSECRET"]
-pushusr = os.environ["PUSHUSR"]
-img_url = os.environ["IMG_URL"]
-coolpushurl = os.environ["COOLPUSHURL"]
+corpid = 'wwa5abd7a98d70b22a'
+agentid = '1000002'
+corpsecret = 'J9FiDx75lHpixlTN_nmNkT_TV60jX17awrtYfW_9YbE'
+pushusr = 'LianHeXiang' #企业微信推送用户,默认'@all'为应用全体用户
+img_url = 'https://www.hualigs.cn/image/60a80a1e785bb.jpg'
+coolpushurl = 'https://push.xuthus.cc/group/f3447877dcd1f54116ccf787b3dc535b?groupId=809407633'
 
 # 源URL配置
 url = 'https://cn.wowhead.com/'
@@ -131,12 +131,12 @@ def run():
 
     #企业微信推送
     msg = msg.replace('\n\n', '\n')
-    #push = WXPusher(pushusr,msg)
-    #push.send_message()
+    push = WXPusher(pushusr,msg)
+    push.send_message()
 
     #酷推推送
-    #requests.get(coolpushurl, params={"c": "机器人查询指令：大使、世界BOSS、剧场、周常、爬塔\n"+data})
-    
+    requests.get(coolpushurl, params={"c": "机器人查询指令：大使、世界BOSS、剧场、周常、爬塔\n"+data})
+
     #保存本地json
     strBoss=strBoss + "\n更新时间(UTC):"+datetime.datetime.strftime(datetime.datetime.now() ,'%Y-%m-%d %H:%M:%S')
     strJc=strJc + "\n更新时间(UTC):"+datetime.datetime.strftime(datetime.datetime.now() ,'%Y-%m-%d %H:%M:%S')
@@ -150,10 +150,10 @@ def run():
     
     #POST发布文章
     conurl = "http://baimiao.work/action/import"
-    conttext="大使任务：\n"+retmsg+"\n世界BOSS：\n"+strBoss+"\n泊星剧场：\n"+strJc+"\n周常任务：\n"+strZc+"\n噬渊爬塔：\n"+strPt;
-    contdata = {"title":"大使任务 更新时间(UTC):"+datetime.datetime.strftime(datetime.datetime.now() ,'%Y-%m-%d %H:%M:%S'),"text":conttext,"key":"ob7hww6fs2e4xo9lltzewcpok5","mid":array('i', [6])}
+    conttext="大使任务：\n"+retmsg+"\n\n\n\n世界BOSS：\n"+strBoss+"\n\n\n\n泊星剧场：\n"+strJc+"\n\n\n\n周常任务：\n"+strZc+"\n\n\n\n噬渊爬塔：\n"+strPt;
+    contdata = {"title":"大使任务 更新时间(UTC):"+datetime.datetime.strftime(datetime.datetime.now() ,'%Y-%m-%d %H:%M:%S'),"text":conttext,"key":"ob7hww6fs2e4xo9lltzewcpok5","mid":array([6])}
     requests.post(url=conurl,data=contdata)
-    
+
     print(msg)
     return retmsg
  
