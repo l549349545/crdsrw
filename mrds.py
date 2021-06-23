@@ -135,7 +135,7 @@ def run():
     push.send_message()
 
     #酷推推送
-    requests.get(coolpushurl, params={"c": "机器人查询指令：大使、世界BOSS、剧场、周常、爬塔\n"+data})
+    requests.get(coolpushurl, params={"c": "机器人查询指令：大使、世界BOSS、剧场、周常、爬塔\n"+data+"\n网站查看：http://baimiao.work"})
 
     #保存本地json
     strBoss=strBoss + "\n更新时间(UTC):"+datetime.datetime.strftime(datetime.datetime.now() ,'%Y-%m-%d %H:%M:%S')
