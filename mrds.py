@@ -6,6 +6,7 @@ from lxml import etree
 import time
 import os
 import datetime
+from numpy import array
 
 # 推送配置1 
 corpid = os.environ["CORPID"]
