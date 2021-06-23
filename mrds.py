@@ -150,7 +150,7 @@ def run():
     #POST发布文章
     url = "http://baimiao.work/action/import"
     conttext="大使任务：\n"+retmsg+"\n世界BOSS：\n"+strBoss+"\n泊星剧场：\n"+strJc+"\n周常任务：\n"+strZc+"\n噬渊爬塔：\n"+strPt;
-    contdata = {"title":"大使任务 更新时间(UTC):"+datetime.datetime.strftime(datetime.datetime.now() ,'%Y-%m-%d %H:%M:%S'),"text":conttext,"key":"ob7hww6fs2e4xo9lltzewcpok5","mid":array('i', [6])}
+    contdata = {"title":"大使任务 更新时间(UTC):"+datetime.datetime.strftime(datetime.datetime.now() ,'%Y-%m-%d %H:%M:%S'),"text":conttext,"key":"ob7hww6fs2e4xo9lltzewcpok5","mid":6}
 
     print(msg)
     return retmsg
