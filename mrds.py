@@ -131,24 +131,25 @@ def run():
 
     #企业微信推送
     msg = msg.replace('\n\n', '\n')
-    push = WXPusher(pushusr,msg)
-    push.send_message()
+    #push = WXPusher(pushusr,msg)
+    #push.send_message()
 
     #酷推推送
-    requests.get(coolpushurl, params={"c": "机器人查询指令：大使、世界BOSS、剧场、周常、爬塔\n"+data+"\n网站查看：http://baimiao.work"})
+    current_time = (datetime.datetime.now() + datetime.timedelta(hours=8)).strftime('%Y-%m-%d %H:%M:%S')   
+    #requests.get(coolpushurl, params={"c": "机器人查询指令：大使、世界BOSS、剧场、周常、爬塔\n"+data+"\n网站查看：http://baimiao.work"+"\n"+current_time})
 
     #POST发布文章
     conurl = "http://baimiao.work/action/import"
     conttext="大使任务：\n"+data+"\n\n\n\n世界BOSS(明日)：\n"+strBoss+"\n\n\n\n泊星剧场(明日)：\n"+strJc+"\n\n\n\n周常任务(明日)：\n"+strZc+"\n\n\n\n噬渊爬塔(明日)：\n"+strPt;
-    contdata = {"title":"大使任务 更新时间(UTC):"+datetime.datetime.strftime(datetime.datetime.now() ,'%Y-%m-%d %H:%M:%S'),"text":conttext,"key":"ob7hww6fs2e4xo9lltzewcpok5","mid":array([6])}
+    contdata = {"title":"大使任务 更新时间(UTC):"+current_time,"text":conttext,"key":"ob7hww6fs2e4xo9lltzewcpok5","mid":array([6])}
     requests.post(url=conurl,data=contdata)
     
     #保存本地json
-    strBoss=strBoss + "\n更新时间(UTC):"+datetime.datetime.strftime(datetime.datetime.now() ,'%Y-%m-%d %H:%M:%S')
-    strJc=strJc + "\n更新时间(UTC):"+datetime.datetime.strftime(datetime.datetime.now() ,'%Y-%m-%d %H:%M:%S')
-    strZc=strZc + "\n更新时间(UTC):"+datetime.datetime.strftime(datetime.datetime.now() ,'%Y-%m-%d %H:%M:%S')    
-    retmsg=data+ "更新时间(UTC):"+datetime.datetime.strftime(datetime.datetime.now() ,'%Y-%m-%d %H:%M:%S')
-    strPt=strPt+ "\n更新时间(UTC):"+datetime.datetime.strftime(datetime.datetime.now() ,'%Y-%m-%d %H:%M:%S')
+    strBoss=strBoss + "\n更新时间(UTC):"+current_time
+    strJc=strJc + "\n更新时间(UTC):"+current_time
+    strZc=strZc + "\n更新时间(UTC):"+current_time    
+    retmsg=data+ "更新时间(UTC):"+current_time
+    strPt=strPt+ "\n更新时间(UTC):"+current_time
         
     model = {'DSRW':"大使任务：\n"+retmsg,'SJBS':"世界BOSS(明日)：\n"+strBoss,'BXJC':"泊星剧场(明日)：\n"+strJc,'ZCRW':"周常任务(明日)：\n"+strZc,'SYPT':"噬渊爬塔(明日)：\n"+strPt}
     with open("./hmm.json",'w',encoding='utf-8') as json_file:
