@@ -190,7 +190,7 @@ def run():
     except Exception as err:
         msg = '发生错误',err
     else:
-        msg = data +"\n\n剧场："+strJc  +"\n\n镜子："+strJz +"\n\n执事者金色宝箱："+strJsbx +"\n\n全谱系驱魔师："+strQtx
+        msg = data +"\n\n剧场："+strJc  +"\n\n镜子："+strJz +"\n\n执事者金色宝箱："+strJsbx +"\n\n"+strQtx
 
     #企业微信推送
     msg = msg.replace('\n\n', '\n')
