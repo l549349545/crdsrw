@@ -1,0 +1,41 @@
+#通过 workflow_dispatch 触发，cron任务部署在云函数
+name: crds
+
+on:
+  workflow_dispatch:
+  
+jobs:
+  start:
+    
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: Set up Python 3.6
+      uses: actions/setup-python@v2
+      with:
+        python-version: 3.6
+    - name: Install requirements
+      run: |
+        python -m pip install --upgrade pip
+        pip install -r requirement.txt
+    - name: run
+      env:
+        AGENTID: ${{ secrets.AGENTID }}
+        COOLPUSHURL:  ${{ secrets.COOLPUSHURL }}
+        CORPID: ${{ secrets.CORPID }}
+        CORPSECRET: ${{ secrets.CORPSECRET }}
+        IMG_URL: ${{ secrets.IMG_URL }}
+        PUSHUSR: ${{ secrets.PUSHUSR }}
+      run: |
+        pip install -r requirement.txt
+        python mrds.py
+        
+    - name: Commit and push if changed   # hmm.json更新到仓库
+      run: |
+            git diff
+            git config --global user.email "306941068@qq.com"
+            git config --global user.name "l549349545"
+            git add -A
+            git commit -m "Updated hmm" || exit 
+            git push
