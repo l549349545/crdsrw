@@ -226,8 +226,7 @@ def run():
     with open("./hmm.json",'w',encoding='utf-8') as json_file:
        json.dump(model,json_file,ensure_ascii=False, default=set_default)
     
-    print(conttext)
-    return retmsg
+    return msg
  
 def main_handler(event, context):
     return run()
