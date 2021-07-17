@@ -188,11 +188,12 @@ def run():
     except Exception as err:
         msg = '发生错误',err
     else:
-        msg = data + "\n\n突袭：" + strTx +"\n\n泊星剧场："+strJc  +"\n\n温西尔镜子："+strJz +"\n\n执事者金色宝箱："+strJsbx +"\n\n"+strQtx
+        msg = data + "\n\n突袭：" + strTx +"\n\n剧场："+strJc  +"\n\n温西尔镜子："+strJz +"\n\n执事者金色宝箱："+strJsbx +"\n\n"+strQtx
 
     msg = msg.replace('\n\n', '\n')
     
     #保存本地json    
+    current_time = (datetime.datetime.now() + datetime.timedelta(hours=8)).strftime('%Y-%m-%d %H:%M:%S')   
     retmsg=data+ "更新时间(UTC+8):"+current_time
     strBoss=strBoss + "\n更新时间(UTC+8):"+current_time
     strJc=strJc + "\n更新时间(UTC+8):"+current_time
