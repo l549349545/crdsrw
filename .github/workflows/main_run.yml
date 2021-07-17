@@ -1,5 +1,5 @@
 #通过 workflow_dispatch 触发，cron任务部署在云函数
-name: crds
+name: crds_update
 
 on:
   workflow_dispatch:
