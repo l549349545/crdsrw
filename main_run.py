@@ -85,7 +85,7 @@ def run():
         strJsbx += i
         
        #获取噬渊狩猎小队
-       con=sel.xpath('normalize-space(//div[@id="EU-group-beastwarrens-hunts"])').xpath('string(.)').extract()[0]
+       con=sel.xpath('normalize-space(//div[@id="EU-group-beastwarrens-hunts-line-0"])')
        strSlxd = ''
        for i in con:
         strSlxd += i
@@ -140,10 +140,10 @@ def run():
         strJc += i
         
        #获取突袭
-       con=sel.xpath('//*[@id="main-contents"]/div[6]/div/div/div[7]/div[35]')
+       #con=sel.xpath('//*[@id="main-contents"]/div[6]/div/div/div[7]/div[35]')
        strTx = ''
-       for i in con:
-        strTx += i
+       #for i in con:
+        #strTx += i
         
        #获取周长
        con=sel.xpath('normalize-space(//div[@id="EU-group-weekly-quest-sl"])')
