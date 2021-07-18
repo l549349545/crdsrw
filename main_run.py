@@ -44,7 +44,7 @@ d.update({'A Calling in Maldraxxus': '使命：玛卓克萨斯：在玛卓克萨
 d.update({'A Calling in Revendreth': '使命：雷文德斯：在雷文德斯完成3个世界任务'})
 
 
-cz = {'1': "强韧、崩裂、火山"}
+cz = {'1': "残暴、*、*、磨难"}
 cz.update({'2': '强韧、*、*、磨难'})
 cz.update({'3': '残暴、*、*、磨难'})
 cz.update({'4': '强韧、*、*、磨难'})
@@ -115,7 +115,7 @@ def run():
         strYqsx += i
 
         #获取词缀
-       zspp = (datetime.datetime.now()+ datetime.timedelta(hours=24)).isocalendar()[1] % 12 + 4 #周数取12余+4
+       zspp = (datetime.datetime.now()+ datetime.timedelta(hours=96)).isocalendar()[1] % 12 + 4 #周数取12余+4
        zspp_next = zspp + 1
        strCzinfo = "本周："+str(zspp)+"\n下周："+str(zspp_next)
        for key in cz:
