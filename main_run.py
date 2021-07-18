@@ -115,7 +115,7 @@ def run():
         strYqsx += i
 
         #获取词缀
-       zspp = ((datetime.datetime.now()+ datetime.timedelta(hours=96)).isocalendar()[1] % 12) + 2 #周数取12余+2
+       zspp = ((datetime.datetime.now()+ datetime.timedelta(hours=96)).isocalendar()[1] % 12) + 3 #周数取12余+2
        zspp_next = zspp + 1
        strCzinfo = "本周："+str(zspp)+"\n下周："+str(zspp_next)
        for key in cz:
