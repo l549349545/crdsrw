@@ -52,18 +52,18 @@ d.update({'A Calling in Maldraxxus': '使命：玛卓克萨斯：在玛卓克萨
 d.update({'A Calling in Revendreth': '使命：雷文德斯：在雷文德斯完成3个世界任务'})
 
 
-cz = {'1': "强韧、崩裂、火山"}
-cz.update({'2': '残暴、怨毒、重伤'})
-cz.update({'3': '强韧、激励、风雷'})
-cz.update({'4': '残暴、鼓舞、死疽'})
-cz.update({'5': '强韧、血池、震荡'})
-cz.update({'6': '残暴、暴怒、易爆'})
-cz.update({'7': '强韧、怨毒、火山'})
-cz.update({'8': '残暴、激励、死疽'})
-cz.update({'9': '强韧、鼓舞、风雷'})
-cz.update({'10': '残暴、崩裂、易爆'})
-cz.update({'11': '强韧、血池、重伤'})
-cz.update({'12': '残暴、暴怒、震荡'})
+cz = {'1': "残暴、*、*、磨难"}
+cz.update({'2': '强韧、*、*、磨难'})
+cz.update({'3': '残暴、*、*、磨难'})
+cz.update({'4': '强韧、*、*、磨难'})
+cz.update({'5': '残暴、*、*、磨难'})
+cz.update({'6': '强韧、*、*、磨难'})
+cz.update({'7': '残暴、*、*、磨难'})
+cz.update({'8': '强韧、鼓舞、重伤、磨难'})
+cz.update({'9': '残暴、怨毒、死疽、磨难'})
+cz.update({'10': '强韧、*、*、磨难'})
+cz.update({'11': '残暴、*、*、磨难'})
+cz.update({'12': '强韧、*、*、磨难'})
 
 def set_default(obj):
     if isinstance(obj, set):
@@ -121,9 +121,9 @@ def run():
        strYqsx = ''
        for i in con:
         strYqsx += i
-
+        
         #获取词缀
-       zspp = (datetime.datetime.now()+ datetime.timedelta(hours=24)).isocalendar()[1] % 12 + 4 #周数取12余+4
+       zspp = ((datetime.datetime.now()+ datetime.timedelta(hours=96)).isocalendar()[1] % 12) + 3 #周数取12余+2
        zspp_next = zspp + 1
        strCzinfo = "本周："+str(zspp)+"\n下周："+str(zspp_next)
        for key in cz:
