@@ -124,7 +124,10 @@ def run():
         
         #获取词缀
        zspp = ((datetime.datetime.now()+ datetime.timedelta(hours=96)).isocalendar()[1] % 12) + 3 #周数取12余+2
-       if (zspp == 10):
+       
+       if (zspp == 9):
+           zspp_next='A'
+       elif (zspp == 10):
            zspp='A' 
            zspp_next='B'
        elif zspp == 11: 
