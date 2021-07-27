@@ -48,14 +48,14 @@ cz = {'1': "残暴、*、*、磨难"}
 cz.update({'2': '强韧、*、*、磨难'})
 cz.update({'3': '残暴、*、*、磨难'})
 cz.update({'4': '强韧、*、*、磨难'})
-cz.update({'5': '残暴、*、*、磨难'})
-cz.update({'6': '强韧、*、*、磨难'})
-cz.update({'7': '残暴、*、*、磨难'})
+cz.update({'5': '残暴、激励、易爆、磨难'})
+cz.update({'6': '强韧、崩裂、风雷、磨难'})
+cz.update({'7': '残暴、暴怒、火山、磨难'})
 cz.update({'8': '强韧、鼓舞、重伤、磨难'})
 cz.update({'9': '残暴、怨毒、死疽、磨难'})
-cz.update({'10': '强韧、*、*、磨难'})
-cz.update({'11': '残暴、*、*、磨难'})
-cz.update({'12': '强韧、*、*、磨难'})
+cz.update({'A': '强韧、*、*、磨难'})
+cz.update({'B': '残暴、*、*、磨难'})
+cz.update({'C': '强韧、*、*、磨难'})
 
 def set_default(obj):
     if isinstance(obj, set):
@@ -116,7 +116,10 @@ def run():
 
         #获取词缀
        zspp = ((datetime.datetime.now()+ datetime.timedelta(hours=96)).isocalendar()[1] % 12) + 3 #周数取12余+2
-       zspp_next = zspp + 1
+       if zspp == 10 then zspp='A' zspp_next='B'
+       elseif then zspp == 11 then zspp='B' zspp_next='C'
+       elseif then zspp == 12 then zspp='C' zspp_next='1'
+       else zspp_next = zspp + 1 end
        strCzinfo = "本周："+str(zspp)+"\n下周："+str(zspp_next)
        for key in cz:
         strCzinfo = strCzinfo.replace(key, cz[key])
