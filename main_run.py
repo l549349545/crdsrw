@@ -116,11 +116,20 @@ def run():
 
         #获取词缀
        zspp = ((datetime.datetime.now()+ datetime.timedelta(hours=96)).isocalendar()[1] % 12) + 3 #周数取12余+2
-       if zspp == 10 then zspp='A' zspp_next='B'
-       elseif then zspp == 11 then zspp='B' zspp_next='C'
-       elseif then zspp == 12 then zspp='C' zspp_next='1'
-       else zspp_next = zspp + 1 end
+       if (zspp == 10):
+           zspp='A' 
+           zspp_next='B'
+       elif zspp == 11: 
+           zspp='B' 
+           zspp_next='C'
+       elif zspp == 12:
+           zspp='C' 
+           zspp_next='1'
+       else:
+           zspp_next = zspp + 1
+
        strCzinfo = "本周："+str(zspp)+"\n下周："+str(zspp_next)
+
        for key in cz:
         strCzinfo = strCzinfo.replace(key, cz[key])
 
