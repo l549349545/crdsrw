@@ -214,44 +214,13 @@ def run():
 
     #酷推推送
     current_time = (datetime.datetime.now() + datetime.timedelta(hours=8)).strftime('%Y-%m-%d %H:%M:%S')   
-    requests.get(coolpushurl, params={"c": "机器人查询指令：大使、世界BOSS、剧场、周常、爬塔、全谱系、金色宝箱、狩猎小队、镜子、世界事件、名望、勇气、词缀\n"+data+"\n网站查看：http://baimiao.work"+"\n"+current_time})
+    #requests.get(coolpushurl, params={"c": "机器人查询指令：大使、世界BOSS、剧场、周常、爬塔、全谱系、金色宝箱、狩猎小队、镜子、世界事件、名望、勇气、词缀\n"+data+"\n网站查看：http://baimiao.work"+"\n"+current_time})
 
     #POST发布文章
     conurl = "http://baimiao.work/action/import"
     conttext="大使任务：\n"+data +"\n\n\n\n世界BOSS(明日)：\n"+strBoss +"\n\n\n\n泊星剧场(明日)：\n"+strJc+"\n\n\n\n周常任务(明日)：\n"+strZc+"\n\n\n\n噬渊爬塔(明日)：\n"+ strPt+"\n\n\n\n全谱系驱魔师(明日)：\n"+strQtx+"\n\n\n\n执事者金色宝箱(明日)：\n"+strJsbx+"\n\n\n\n噬渊狩猎小队(明日)：\n"+strSlxd+"\n\n\n\n温西尔镜子(明日)：\n"+strJz+"\n\n\n\n世界事件(明日)：\n"+strSjsj+"\n\n\n\n名望上限(明日)：\n"+strMwsx+"\n\n\n\n勇气上限(明日)：\n"+strYqsx+"\n\n\n\n大秘境词缀(明日)：\n"+strCzinfo;
     contdata = {"title":"大使任务 更新时间(UTC+8):"+current_time,"text":conttext,"key":"ob7hww6fs2e4xo9lltzewcpok5","mid":array([6])}
     requests.post(url=conurl,data=contdata)
-    
-    #保存本地json    
-    retmsg=data+ "更新时间(UTC+8):"+current_time
-    strBoss=strBoss + "\n更新时间(UTC+8):"+current_time
-    strJc=strJc + "\n更新时间(UTC+8):"+current_time
-    strZc=strZc + "\n更新时间(UTC+8):"+current_time    
-    strPt=strPt+ "\n更新时间(UTC+8):"+current_time 
-    strQtx=strQtx+ "\n更新时间(UTC+8):"+current_time 
-    strJsbx=strJsbx+ "\n更新时间(UTC+8):"+current_time 
-    strSlxd=strSlxd+ "\n更新时间(UTC+8):"+current_time 
-    strJz=strJz+ "\n更新时间(UTC+8):"+current_time 
-    strSjsj=strSjsj+ "\n更新时间(UTC+8):"+current_time 
-    strMwsx=strMwsx+ "\n更新时间(UTC+8):"+current_time 
-    strYqsx=strYqsx+ "\n更新时间(UTC+8):"+current_time 
-    strCzinfo=strCzinfo+ "\n更新时间(UTC+8):"+current_time
-        
-    model = {'DSRW':"大使任务：\n"+retmsg,
-             'SJBS':"世界BOSS(明日)：\n"+strBoss,
-             'BXJC':"泊星剧场(明日)：\n"+strJc,
-             'ZCRW':"周常任务(明日)：\n"+strZc,
-             'SYPT':"噬渊爬塔(明日)：\n"+strPt,
-             'QPXQMS':"全谱系驱魔师(明日)：\n"+strQtx,
-             'ZSZJSBX':"执事者金色宝箱(明日)：\n"+strJsbx,
-             'SYSLXD':"噬渊狩猎小队(明日)：\n"+strSlxd,
-             'WXEJZ':"温西尔镜子(明日)：\n"+strJz,
-             'SJSJ':"世界事件(明日)：\n"+strSjsj,
-             'MWSX':"名望上限(明日)：\n"+strMwsx,
-             'YQSX':"勇气上限(明日)：\n"+strYqsx,
-             'DMJCZ':"大秘境词缀(明日)：\n"+strCzinfo}
-    with open("./hmm.json",'w',encoding='utf-8') as json_file:
-       json.dump(model,json_file,ensure_ascii=False, default=set_default)
     
     print(conttext)
     return retmsg
