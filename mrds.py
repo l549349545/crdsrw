@@ -123,7 +123,7 @@ def run():
         strYqsx += i
         
         #获取词缀
-       zspp = ((datetime.datetime.now()+ datetime.timedelta(hours=96)).isocalendar()[1] % 12) + 3 #周数取12余+2
+       zspp = ((datetime.datetime.now()+ datetime.timedelta(hours=104)).isocalendar()[1] % 12) + 3 #周数取12余+2
        
        if (zspp == 9):
            zspp_next='A'
