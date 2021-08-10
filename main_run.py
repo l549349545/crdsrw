@@ -55,7 +55,7 @@ cz.update({'8': '强韧、鼓舞、重伤、磨难'})
 cz.update({'9': '残暴、怨毒、死疽、磨难'})
 cz.update({'A': '强韧、激励、震荡、磨难'})
 cz.update({'B': '残暴、血池、风雷、磨难'})
-cz.update({'C': '强韧、*、*、磨难'})
+cz.update({'C': '强韧、易爆、暴怒、磨难'})
 
 def set_default(obj):
     if isinstance(obj, set):
