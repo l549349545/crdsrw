@@ -77,12 +77,11 @@ def run():
        strQtx = ''
        for i in con:
         strQtx += i
-        
+       strQtx = strQtx +"\n\n"
        con=sel.xpath('normalize-space(//div[@id="EU-group-familiar"])')
        for i in con:
         strQtx += i
-        
-        
+       strQtx = strQtx +"\n\n"
        con=sel.xpath('normalize-space(//div[@id="EU-group-menagerie"])')
        for i in con:
         strQtx += i
