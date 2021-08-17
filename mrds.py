@@ -52,7 +52,7 @@ d.update({'A Calling in Maldraxxus': '使命：玛卓克萨斯：在玛卓克萨
 d.update({'A Calling in Revendreth': '使命：雷文德斯：在雷文德斯完成3个世界任务'})
 
 
-cz = {'1': "残暴、*、*、磨难"}
+cz = {'1': "残暴、崩裂、火山、磨难"}
 cz.update({'2': '强韧、*、*、磨难'})
 cz.update({'3': '残暴、*、*、磨难'})
 cz.update({'4': '强韧、*、*、磨难'})
