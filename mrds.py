@@ -85,6 +85,14 @@ def run():
        strQtx = ''
        for i in con:
         strQtx += i
+       strQtx = strQtx +"\n\n"
+       con=sel.xpath('normalize-space(//div[@id="EU-group-familiar"])')
+       for i in con:
+        strQtx += i
+       strQtx = strQtx +"\n\n"
+       con=sel.xpath('normalize-space(//div[@id="EU-group-menagerie"])')
+       for i in con:
+        strQtx += i
         
        #获取执事者金色宝箱
        con=sel.xpath('normalize-space(//div[@id="EU-group-steward-of-the-day"])')
