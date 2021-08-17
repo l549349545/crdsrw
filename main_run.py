@@ -78,6 +78,15 @@ def run():
        for i in con:
         strQtx += i
         
+       con=sel.xpath('normalize-space(//div[@id="EU-group-familiar"])')
+       for i in con:
+        strQtx += i
+        
+        
+       con=sel.xpath('normalize-space(//div[@id="EU-group-menagerie"])')
+       for i in con:
+        strQtx += i
+        
        #获取执事者金色宝箱
        con=sel.xpath('normalize-space(//div[@id="EU-group-steward-of-the-day"])')
        strJsbx = ''
@@ -239,7 +248,7 @@ def run():
              'SJSJ':"世界事件(明日)：\n"+strSjsj,
              'MWSX':"名望上限(明日)：\n"+strMwsx,
              'YQSX':"勇气上限(明日)：\n"+strYqsx,
-             'DMJCZ':"大秘境词缀(明日)：\n"+strCzinfo,
+             'DMJCZ':"大秘境词缀：\n"+strCzinfo,
              'SYTX':"噬渊突袭(明日)：\n"+strTx}
     with open("./hmm.json",'w',encoding='utf-8') as json_file:
        json.dump(model,json_file,ensure_ascii=False, default=set_default)
