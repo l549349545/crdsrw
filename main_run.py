@@ -7,55 +7,11 @@ import time
 import os
 import datetime
 from numpy import array
+from dsConfig import d
+from czConfig import cz
 
 # 源URL配置
 url = 'https://cn.wowhead.com/'
-
-# 名称字典
-d = {'Rare Resources': "稀有资源：从暗影界的稀有怪物和宝箱中收集3枚掮客硬币"}
-d.update({'Challenges in Maldraxxus': '玛卓克萨斯的挑战：击败玛卓克萨斯的强力劲敌'})
-d.update({'A Call to Ardenweald': '炽蓝仙野的召唤：进度条儿'})
-d.update({'Storm the Maw': '突袭噬渊：在噬渊消灭3个稀有或者特殊首领'})
-d.update({'Training in Revendreth': '雷文德斯训练：与你的学徒在雷文德斯完成3个世界任务'})
-d.update({'A Call to Maldraxxus': '玛卓克萨斯的召唤：进度条儿'})
-d.update({'Aiding Ardenweald': '协助炽蓝仙野：在炽蓝仙野完成3个世界任务'})
-d.update({'A Call to Revendreth': '雷文德斯的召唤:进度条儿'})
-d.update({'Anima Salvage': '心能回收：从托加斯特，罪魂之塔收集150个心能余烬'})
-d.update({'Aiding Maldraxxus': '协助玛卓克萨斯：在玛卓克萨斯完成3个世界任务'})
-d.update({'A Calling in Bastion': '使命：晋升堡垒：在晋升堡垒完成3个世界任务'})
-d.update({'A Call to Bastion': '晋升堡垒的召唤:进度条儿'})
-d.update({'Aiding Bastion': '协助晋升堡垒：在晋升堡垒完成3个世界任务'})
-d.update({'Troubles at Home': '家园的麻烦:保卫晋升堡垒 进度条儿'})
-d.update({'Challenges in Bastion': '晋升堡垒的挑战：击败晋升堡垒的强力劲敌'})
-d.update({'Challenges in Ardenweald': '炽蓝仙野的挑战:击败炽蓝仙野的强力劲敌'})
-d.update({'Training in Maldraxxus': '玛卓克萨斯训练：与你的学徒在玛卓克萨斯完成3个世界任务'})
-d.update({'Challenges in Revendreth': '雷文德斯的挑战：击败雷文德斯的强力劲敌'})
-d.update({'Training in Ardenweald': '炽蓝仙野训练：与你的学徒在炽蓝仙野完成3个世界任务'})
-d.update({'Training Our Forces': '训练部队：与你的学徒在晋升堡垒完成3个世界任务'})
-d.update({'Aiding Revendreth': '协助雷文德斯：在雷文德斯完成3个世界任务'})
-d.update({'Anima Appeal': '心能出现：在晋升堡垒的极乐堡的心能储备中存放600份心能'})
-d.update({'Gildenite Grab': '钽金抢夺：从晋升堡垒的稀有怪物和宝箱中收集3份钽金'})
-d.update({'A Source of Sorrowvine': '哀藤之源：从雷文德斯的稀有怪物和宝箱中收集3根哀藤'})
-d.update({'A Wealth of Wealdwood': '仙枝的财富：从炽蓝仙野的稀有怪物和宝箱中收集3根仙枝'})
-d.update({'Bonemetal Bonanza': '富产髓钢：从玛卓克萨斯的稀有怪物和宝箱中收集3份髓钢'})
-d.update({'Training in Bastion': '晋升堡垒训练：在晋升堡垒完成3个世界任务'})
-d.update({'A Calling in Ardenweald': '使命：炽蓝仙野：在炽蓝仙野完成3个世界任务'})
-d.update({'A Calling in Maldraxxus': '使命：玛卓克萨斯：在玛卓克萨斯完成3个世界任务'})
-d.update({'A Calling in Revendreth': '使命：雷文德斯：在雷文德斯完成3个世界任务'})
-
-
-cz = {'1': "残暴、崩裂、火山、磨难"}
-cz.update({'2': '强韧、*、*、磨难'})
-cz.update({'3': '残暴、*、*、磨难'})
-cz.update({'4': '强韧、*、*、磨难'})
-cz.update({'5': '残暴、激励、易爆、磨难'})
-cz.update({'6': '强韧、崩裂、风雷、磨难'})
-cz.update({'7': '残暴、暴怒、火山、磨难'})
-cz.update({'8': '强韧、鼓舞、重伤、磨难'})
-cz.update({'9': '残暴、怨毒、死疽、磨难'})
-cz.update({'A': '强韧、激励、震荡、磨难'})
-cz.update({'B': '残暴、血池、风雷、磨难'})
-cz.update({'C': '强韧、易爆、暴怒、磨难'})
 
 def set_default(obj):
     if isinstance(obj, set):
@@ -123,8 +79,7 @@ def run():
         strYqsx += i
 
         #获取词缀
-       zspp = ((datetime.datetime.now()+ datetime.timedelta(hours=104)).isocalendar()[1] % 12) + 3 #周数取12余+2
-       
+       zspp = ((datetime.datetime.now()+ datetime.timedelta(hours=104)).isocalendar()[1] % 12) + 3 #周数取12余+2       
        if (zspp == 9):
            zspp_next='A'
        elif (zspp == 10):
@@ -138,12 +93,8 @@ def run():
            zspp_next='1'
        else:
            zspp_next = zspp + 1
-
        strCzinfo = "本周："+str(zspp)+"\n下周："+str(zspp_next)
-
-       for key in cz:
-        strCzinfo = strCzinfo.replace(key, cz[key])
-
+       
        for key in cz:
         strCzinfo = strCzinfo.replace(key, cz[key])
 
