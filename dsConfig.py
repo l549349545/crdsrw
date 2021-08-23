@@ -1,4 +1,4 @@
-# 名称字典
+# 大使任务名称字典
 d = {'Rare Resources': "稀有资源：从暗影界的稀有怪物和宝箱中收集3枚掮客硬币"}
 d.update({'Challenges in Maldraxxus': '玛卓克萨斯的挑战：击败玛卓克萨斯的强力劲敌'})
 d.update({'A Call to Ardenweald': '炽蓝仙野的召唤：进度条儿'})

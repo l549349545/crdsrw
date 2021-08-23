@@ -94,7 +94,7 @@ def run():
        else:
            zspp_next = zspp + 1
        strCzinfo = "本周："+str(zspp)+"\n下周："+str(zspp_next)
-       
+
        for key in cz:
         strCzinfo = strCzinfo.replace(key, cz[key])
 
@@ -208,5 +208,5 @@ def run():
 def main_handler(event, context):
     return run()
 
-# 本地运行用这个
+# 本地运行用这个,也用于Cron任务触发
 run()

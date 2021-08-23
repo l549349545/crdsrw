@@ -1,3 +1,4 @@
+# 用于Cron任务调用的Action触发
 import requests
 import json
 
