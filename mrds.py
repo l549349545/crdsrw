@@ -184,7 +184,7 @@ def run():
     requests.post(url=conurl,data=contdata)
     
     print(conttext)
-    return retmsg
+    return true
  
 def main_handler(event, context):
     return run()
