@@ -174,8 +174,8 @@ def run():
     #企业微信推送
     current_time = (datetime.datetime.now() + datetime.timedelta(hours=8)).strftime('%Y-%m-%d %H:%M:%S')   
     msg = msg.replace('\n\n', '\n')
-    push = WXPusher(pushusr,msg)
-    push.send_message()
+    #push = WXPusher(pushusr,msg)
+    #push.send_message()
 
     #POST发布文章
     conurl = "http://baimiao.work/action/import"
