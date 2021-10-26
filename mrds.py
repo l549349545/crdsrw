@@ -183,7 +183,7 @@ def run():
     contdata = {"title":"大使任务 更新时间(UTC+8):"+current_time,"text":conttext,"key":"ob7hww6fs2e4xo9lltzewcpok5","mid":array([6])}
     requests.post(url=conurl,data=contdata)
     
-    print(conttext)
+    #print(conttext)
     return true
  
 def main_handler(event, context):
