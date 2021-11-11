@@ -206,6 +206,12 @@ def run():
     with open("./hmm.json",'w',encoding='utf-8') as json_file:
        json.dump(model,json_file,ensure_ascii=False, default=set_default)
     
+    #POST发布文章
+    conurl = "http://baimiao.work/action/recdata"
+    conttext=model;
+    contdata = {"title":"大使任务 更新时间(UTC+8):"+current_time,"text":conttext,"key":"cz31utoq9qysyhhn0lkbs6qh77","mid":array([6])}
+    requests.post(url=conurl,data=contdata)
+    
     return msg
  
 def main_handler(event, context):
