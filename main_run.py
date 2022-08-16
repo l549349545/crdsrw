@@ -207,10 +207,10 @@ def run():
        json.dump(model,json_file,ensure_ascii=False, default=set_default)
     
     #POST发布文章
-    conurl = "http://baimiao.work/action/recdata"
-    conttext=model;
-    contdata = {"title":"大使任务 更新时间(UTC+8):"+current_time,"text":retmsg,"key":"cz31utoq9qysyhhn0lkbs6qh77","mid":array([6])}
-    requests.post(url=conurl,data=contdata)
+    #conurl = "http://baimiao.work/action/recdata"
+    #conttext=model;
+    #contdata = {"title":"大使任务 更新时间(UTC+8):"+current_time,"text":retmsg,"key":"cz31utoq9qysyhhn0lkbs6qh77","mid":array([6])}
+    #requests.post(url=conurl,data=contdata)
     
     return msg
  
